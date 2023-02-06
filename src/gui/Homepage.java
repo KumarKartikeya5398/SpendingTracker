@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *  
  * @author kartik
  */
 public class Homepage extends javax.swing.JFrame {
@@ -435,7 +435,7 @@ public class Homepage extends javax.swing.JFrame {
             {
                 java.sql.Date date=new java.sql.Date(dt.getTime());
                 int amount=Integer.parseInt(s1);
-                db.DbConnect.st.executeUpdate("insert into spendings(category,s_date,amount) values('"+c+"','"+date+"',"+amount+")");
+                db.DbConnect.st.executeUpdate("insert into spendings(category,s_date,amount) values('"+date+"','"+c+"',"+amount+")");
                 JOptionPane.showMessageDialog(null,"Expense Added Successfully");
                 getEntries();
             }
@@ -467,16 +467,16 @@ public class Homepage extends javax.swing.JFrame {
            
            if(r==JOptionPane.YES_OPTION)
            {
-            int id=(int)Table.getValueAt(ri,0);
-            try {
-                db.DbConnect.st.executeUpdate("Delete from spendings where sid="+id+"");
-                JOptionPane.showMessageDialog(null,"Deleted Successfully");
-                getEntries();
+                int id=(int)Table.getValueAt(ri,0);
+                try {
+                    db.DbConnect.st.executeUpdate("Delete from spendings where sid="+id+"");
+                    JOptionPane.showMessageDialog(null,"Deleted Successfully");
+                    getEntries();
+                }
+                catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
             }
-            catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, ex);
-            }
-        }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
